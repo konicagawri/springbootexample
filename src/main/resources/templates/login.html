@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>hello from login html page </title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/login.css" th:href="@{/css/login.css}"/>
+</head>
+<body>
+<h2 th:text="${'thymeleaf says loginPage'}">prototype hello from login html</h2>
+
+<form id="loginForm" th:object="${loginModelObject}" th:action="loginProcess" method="post">
+    <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+    </ul>
+    <table align="center">
+        <tr>
+            <td><label for="userName" >Username: </label></td>
+            <td><input type="text" th:field="*{userName}" name="userName" id="userName"
+                       th:errorclass="fieldError"></td>
+        </tr>
+        <tr>
+            <td><label for="password" >Password: </label></td>
+            <td><input type="text" th:field="*{password}" name="password" id="password" th:errorclass="fieldError"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="left">
+                <input type="submit" value="login">
+            </td>
+        </tr>
+
+        <tr></tr>
+        <tr>
+            <td></td>
+            <td><a href="/">Home</a></td>
+        </tr>
+    </table>
+    <table align="center">
+        <tr>
+            <td style="font-style: italic; color: red;" th:text="${message}"> prototype message</td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+</body>
+</html>

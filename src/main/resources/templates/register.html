@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>hello from Register html page </title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/login.css" th:href="@{/css/login.css}"/>
+</head>
+<body>
+<h2 th:text="${'thymeleaf says loginPage'}">prototype hello from login html</h2>
+
+<form id="registerForm" th:object="${registerModelObject}" th:action="registerProcess" method="post">
+    <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+    </ul>
+    <table align="center">
+        <tr>
+            <td><label for="userName" >Username: </label></td>
+            <td><input type="text" th:field="*{userName}" name="userName" id="userName"
+                       th:errorclass="fieldError"></td>
+        </tr>
+        <tr>
+            <td><label for="password" >Password: </label></td>
+            <td><input type="text" th:field="*{password}" name="password" id="password" th:errorclass="fieldError"></td>
+        </tr>
+        <tr>
+            <td><label for="firstName" >First Name: </label></td>
+            <td><input type="text" th:field="*{firstName}" name="firstName" id="firstName"
+                       th:errorclass="fieldError"></td>
+        </tr>
+        <tr>
+            <td><label for="lastName" >Last Name: </label></td>
+            <td><input type="text" th:field="*{lastName}" name="lastName" id="lastName"
+                       th:errorclass="lastName"></td>
+        </tr>
+        <tr>
+            <td><label for="email" >Email: </label></td>
+            <td><input type="text" th:field="*{email}" name="email" id="email"
+                       th:errorclass="fieldError"></td>
+        </tr>
+        <tr>
+            <td><label for="phoneNo" >Phone No: </label></td>
+            <td><input type="text" th:field="*{phoneNo}" name="password" id="phoneNo" th:errorclass="phoneNo"></td>
+        </tr>
+        <tr>
+            <td><label for="address" >Address: </label></td>
+            <td><input type="text" th:field="*{address}" name="password" id="address" th:errorclass="address"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="left">
+                <input type="submit" value="login">
+            </td>
+        </tr>
+
+        <tr></tr>
+    </table>
+    <table align="center">
+        <tr>
+            <td style="font-style: italic; color: red;" th:text="${message}"> prototype message</td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+</body>
+</html>
