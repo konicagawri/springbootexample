@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 public interface UserDao {
 
-    void register(RegisterModelObject registerModelObject);
-
-    RegisterModelObject validateUser(LoginModelObject loginModelObject);
+//    void register(RegisterModelObject registerModelObject);
+//
+//    RegisterModelObject validateUser(LoginModelObject loginModelObject);
 }
 

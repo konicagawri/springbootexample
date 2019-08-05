@@ -2,8 +2,11 @@ package com.reactivestax.business.model;
 
 import org.hibernate.validator.constraints.Length;
 
+
+import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
+@Entity
 public class LoginModelObject {
 
 

@@ -3,9 +3,12 @@ package com.reactivestax.web.controller;
 import com.reactivestax.business.model.LoginModelObject;
 import com.reactivestax.business.model.RegisterModelObject;
 import com.reactivestax.business.services.UserService;
+import com.reactivestax.repository.RegisterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,6 +19,9 @@ public class MainController {
 
     @Autowired
     public UserService userService;
+
+    @Autowired
+    private RegisterRepository repository;
 
     @RequestMapping({"/"})
     public ModelAndView baseRequestMapping()
@@ -57,18 +63,6 @@ public class MainController {
         }
 
         return mav;
-
-        //
-//        if(loginModelObject.getUserName().equalsIgnoreCase("Konica")){
-//            modelAndView.setViewName("welcome");
-//            modelAndView.addObject("firstName","Konica");
-//                    return modelAndView;
-//        }
-//        else {
-//            modelAndView.setViewName("login");
-//            modelAndView.addObject("message","username has to be konica");
-//            return modelAndView;
-//        }
     }
 
     @RequestMapping({"/register"})
@@ -94,5 +88,8 @@ public class MainController {
 
         // modelAndView.addObject("message","You are succesfully Registered");
         // return modelAndView;
+
+
+
     }
 }
